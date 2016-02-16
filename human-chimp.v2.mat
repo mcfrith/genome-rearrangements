@@ -1,0 +1,15 @@
+# This is a DNA substitution score matrix from UCSC.  It is
+# reasonable, though not necessarily ideal, for human-chimp
+# alignments.
+
+# This sets the default gap costs for the LAST aligner:
+#last -a500 -b30
+# These differ from the gap costs used by UCSC, for an explanation see:
+# MC Frith & R Kawaguchi, Genome Biol. 2015 16:106.
+
+      A    C    G    T    N
+A     90 -330 -236 -356 -100
+C   -330  100 -318 -236 -100
+G   -236 -318  100 -330 -100
+T   -356 -236 -330   90 -100
+N   -100 -100 -100 -100 -100
