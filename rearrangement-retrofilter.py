@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # Copyright 2016 Martin C. Frith
 
-import bisect, optparse, signal
+import bisect, optparse, signal, sys
 
 def myOpen(fileName):  # faster than fileinput
     if fileName == '-': return sys.stdin

@@ -4,7 +4,7 @@
 # Read 2 files of genome rearrangements: write the 2nd file,
 # indicating which breaks are supported by the 1st file.
 
-import bisect, collections, optparse, signal
+import bisect, collections, optparse, signal, sys
 
 def myOpen(fileName):  # faster than fileinput
     if fileName == '-': return sys.stdin

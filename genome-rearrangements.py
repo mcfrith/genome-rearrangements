@@ -5,7 +5,7 @@
 # fact, the identified rearrangements do not vary with input order,
 # but the way they are written does.
 
-import bisect, operator, optparse, signal, warnings
+import bisect, operator, optparse, signal, sys, warnings
 
 def myOpen(fileName):  # faster than fileinput
     if fileName == '-': return sys.stdin
