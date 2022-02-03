@@ -5,6 +5,8 @@
 # LAST tabular format.  Write the alignments that seem to indicate
 # spliced retrosequences.
 
+from __future__ import print_function
+
 import bisect, operator, optparse, signal, sys
 
 def myOpen(fileName):  # faster than fileinput
@@ -16,7 +18,7 @@ def isExtraPslField(fields):
 
 def pslSplit(field):
     n = field.rstrip(",").split(",")
-    return map(int, n)
+    return [int(i) for i in n]
 
 def exonJunctionsFromPslBlocks(blockSizes, qStarts, tStarts):
     minIntronLength = 50
@@ -88,7 +90,7 @@ def lastSplicedRetroseqs(opts, args):
             if seqlen != qSize: continue  # can happen, sadly
             blocks = fields[11]
             if isBigInsertion(blocks): continue
-        print line,
+        print(line, end="")
 
 if __name__ == "__main__":
     signal.signal(signal.SIGPIPE, signal.SIG_DFL)  # avoid silly error message
