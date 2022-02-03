@@ -5,6 +5,8 @@
 # fact, the identified rearrangements do not vary with input order,
 # but the way they are written does.
 
+from __future__ import print_function
+
 import bisect, operator, optparse, signal, sys, warnings
 
 def myOpen(fileName):  # faster than fileinput
@@ -168,7 +170,7 @@ def edgeOrGapsToString(e):
 
 def printMe(edgesAndGaps):
     out = map(edgeOrGapsToString, edgesAndGaps)
-    print " ".join(out)
+    print(*out)
 
 def isCompatibleEdges(x, y, unorderedGaps):
     xSeqName = x[2]

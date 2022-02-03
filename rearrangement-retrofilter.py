@@ -1,6 +1,8 @@
 #! /usr/bin/env python
 # Copyright 2016 Martin C. Frith
 
+from __future__ import print_function
+
 import bisect, optparse, signal, sys
 
 def myOpen(fileName):  # faster than fileinput
@@ -98,10 +100,10 @@ def rearrangementRetrofilter(opts, args):
         overlaps = bestOverlaps(edges, retros, maxRetroLength, opts)
         if opts.show:
             for k, v in overlaps.iteritems():
-                print "%#.3g" % v, retroseqText(k), line,
+                print("%#.3g" % v, retroseqText(k), line, end="")
         else:
             if not overlaps:
-                print line,
+                print(line, end="")
 
 if __name__ == "__main__":
     signal.signal(signal.SIGPIPE, signal.SIG_DFL)  # avoid silly error message

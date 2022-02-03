@@ -4,6 +4,8 @@
 # Read 2 files of genome rearrangements: write the 2nd file,
 # indicating which breaks are supported by the 1st file.
 
+from __future__ import print_function
+
 import bisect, collections, optparse, signal, sys
 
 def myOpen(fileName):  # faster than fileinput
@@ -91,14 +93,14 @@ def supportedRearrangements(opts, args):
         fields = line.split()
         if opts.all:
             w = annotatedFields(fields, queryEdges)
-            print " ".join(w)
+            print(*w)
         else:
             edgeStrings = filter(isEdgeString, fields)
             n = len(edgeStrings)
             assert n % 2 == 0  # xxx
             s = sum(1 for i in edgeStrings if isSupported(i, queryEdges))
             assert s <= n // 2
-            if s == n // 2: print line,
+            if s == n // 2: print(line, end="")
 
 if __name__ == "__main__":
     signal.signal(signal.SIGPIPE, signal.SIG_DFL)  # avoid silly error message
